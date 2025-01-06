@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биеийн өвөрмөц шинж тодорхойлох</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-section {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .image-section {
+            flex: 0.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .options {
+            margin-top: 10px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <h1>Биеийн өвөрмөц шинж тодорхойлох</h1>
+            <form id="bodyTypeTestForm">
+                <div class="question">
+                    <p>1. Таны биеийн галбир?</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="Хий"> Туранхай</label>
+                        <label><input type="radio" name="q1" value="Шар"> Дунд зэрэг</label>
+                        <label><input type="radio" name="q1" value="Бадган"> Тарган</label>
+                    </div>
+                </div>
+            <div class="question"><p>2. Таны биеийн жин?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="Хий"> Хөнгөн</label>
+                    <label><input type="radio" name="q2" value="Шар"> Дунд зэрэг</label>
+                    <label><input type="radio" name="q2" value="Бадган"> Хүнд</label>
+                </div>
+            </div>
+            <div class="question"><p>3. Арьсны онцлог?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="Хий"> Хуурай</label>
+                    <label><input type="radio" name="q3" value="Шар"> Зөөлөн</label>
+                    <label><input type="radio" name="q3" value="Бадган"> Тослог</label>
+                </div>
+            </div>
+            <div class="question"><p>4. Үс?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="Хий"> Хуурай</label>
+                    <label><input type="radio" name="q4" value="Шар"> Шаравтар</label>
+                    <label><input type="radio" name="q4" value="Бадган"> Хар, гялалзсан</label>
+                </div>
+            </div>
+            <div class="question"><p>5. Таны хоол боловсруулах байдал?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="Хий"> Тогтворгүй</label>
+                    <label><input type="radio" name="q5" value="Шар"> Хурдан</label>
+                    <label><input type="radio" name="q5" value="Бадган"> Удаан</label>
+                </div>
+            </div>
+            <div class="question"><p>6. Нойрны чанар?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="Хий"> Өнгөц сэрэх</label>
+                    <label><input type="radio" name="q6" value="Шар"> Тогтвортой</label>
+                    <label><input type="radio" name="q6" value="Бадган"> Гүн бөх</label>
+                </div>
+            </div>
+            <div class="question"><p>7. Оюуны идэвх?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="Хий"> Санаж сэдсэн</label>
+                    <label><input type="radio" name="q7" value="Шар"> Хурдан</label>
+                    <label><input type="radio" name="q7" value="Бадган"> Удаан</label>
+                </div>
+            </div>
+            <div class="question"><p>8. Биеийн идэвх?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="Хий"> Хөдөлгөөн их</label>
+                    <label><input type="radio" name="q8" value="Шар"> Дунд зэрэг</label>
+                    <label><input type="radio" name="q8" value="Бадган"> Унтамхай</label>
+                </div>
+            </div>
+            <div class="question"><p>9. Авир төрх?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="Хий"> Хувирамтгай</label>
+                    <label><input type="radio" name="q9" value="Шар"> Түрэмгий</label>
+                    <label><input type="radio" name="q9" value="Бадган"> Тайван</label>
+                </div>
+            </div>
+            <div class="question"><p>10. Ой ухаан?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="Хий"> Амархан мартана</label>
+                    <label><input type="radio" name="q10" value="Шар"> Хурдан ойлгоно</label>
+                    <label><input type="radio" name="q10" value="Бадган"> Удаан, тогтвортой</label>
+                </div>
+            </div>
+            <div class="question"><p>11. Ялгадас?</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="Хий"> Хатсан</label>
+                    <label><input type="radio" name="q11" value="Шар"> Зөөлөн</label>
+                    <label><input type="radio" name="q11" value="Бадган"> Өтгөн</label>
+                </div>
+            </div>
+            <div class="question"><p>12. Ундаасах?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="Хий"> Тогтворгүй</label>
+                    <label><input type="radio" name="q12" value="Шар"> Их</label>
+                    <label><input type="radio" name="q12" value="Бадган"> Бага</label>
+                </div>
+            </div>
+            <div class="question"><p>13. Шүд?</p>
+                <div class="options">
+                    <label><input type="radio" name="q13" value="Хий"> Дорсгор</label>
+                    <label><input type="radio" name="q13" value="Шар"> Том</label>
+                    <label><input type="radio" name="q13" value="Бадган"> Зөөлөн буйлтай</label>
+                </div>
+            </div>
+            <div class="question"><p>14. Нүд?</p>
+                <div class="options">
+                    <label><input type="radio" name="q14" value="Хий"> Жижиг</label>
+                    <label><input type="radio" name="q14" value="Шар"> Нэвт цоргисон</label>
+                    <label><input type="radio" name="q14" value="Бадган"> Том</label>
+                </div>
+            </div>
+            <div class="question"><p>15. Нойр?</p>
+                <div class="options">
+                    <label><input type="radio" name="q15" value="Хий"> Өнгөц сэрэх</label>
+                    <label><input type="radio" name="q15" value="Шар"> Тогтвортой</label>
+                    <label><input type="radio" name="q15" value="Бадган"> Гүн бөх</label>
+                </div>
+            </div>
+            <div class="question"><p>16. Яриа?</p>
+                <div class="options">
+                    <label><input type="radio" name="q16" value="Хий"> Түргэн</label>
+                    <label><input type="radio" name="q16" value="Шар"> Хурц</label>
+                    <label><input type="radio" name="q16" value="Бадган"> Удаан</label>
+                </div>
+            </div>
+            <div class="question"><p>17. Хөрөнгө мөнгө?</p>
+                <div class="options">
+                    <label><input type="radio" name="q17" value="Хий"> Ядмаг</label>
+                    <label><input type="radio" name="q17" value="Шар"> Дунд зэрэг</label>
+                    <label><input type="radio" name="q17" value="Бадган"> Баян</label>
+                </div>
+            </div>
+            <div class="question"><p>18. Тухгүй орчин?</p>
+                <div class="options">
+                    <label><input type="radio" name="q18" value="Хий"> Салхи жавартай</label>
+                    <label><input type="radio" name="q18" value="Шар"> Халуун</label>
+                    <label><input type="radio" name="q18" value="Бадган"> Чийгтэй</label>
+                </div>
+            </div>
+            <div class="question"><p>19. Шүтлэг?</p>
+                <div class="options">
+                    <label><input type="radio" name="q19" value="Хий"> Тогтворгүй</label>
+                    <label><input type="radio" name="q19" value="Шар"> Улайран шүтнэ</label>
+                    <label><input type="radio" name="q19" value="Бадган"> Сүжигтэй</label>
+                </div>
+            </div>
+            <div class="question"><p>20. Биеийн хаана ихэвчлэн эвгүйрхдэг?</p>
+                <div class="options">
+                    <label><input type="radio" name="q20" value="Хий"> Хүйснээс доош</label>
+                    <label><input type="radio" name="q20" value="Шар"> Хүйс, зүрхний хооронд</label>
+                    <label><input type="radio" name="q20" value="Бадган"> Зүрхнээс доош хэсэгт</label>
+                </div>
+            </div>
+            <button type="button" class="submit-button" onclick="calculateResult()">Илгээх</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <!-- Image Section -->
+        <div class="image-section">
+            <img src="HEHE" alt="Тестийн зураг">
+        </div>
+    </div>
+
+    <script>
+        function calculateResult() {
+            const form = document.getElementById('bodyTypeTestForm');
+            const formData = new FormData(form);
+            let scores = { Хий: 0, Шар: 0, Бадган: 0 };
+
+            formData.forEach((value) => {
+                scores[value] += 1;
+            });
+
+            const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+            document.getElementById('result').innerHTML = `Таны биеийн төрөл: <strong>${result}</strong>`;
+        }
+    </script>
+</body>
+</html>
