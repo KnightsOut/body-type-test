@@ -5,12 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Биеийн өвөрмөц шинж тодорхойлох</title>
     <style>
+        :root {
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --container-bg: white;
+            --button-bg: #007BFF;
+            --button-hover-bg: #0056b3;
+            --result-bg: #f0f8ff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f1f1f1;
+            --container-bg: #1e1e1e;
+            --button-bg: #1a73e8;
+            --button-hover-bg: #1457b2;
+            --result-bg: #333;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,12 +38,10 @@
         .container {
             max-width: 800px;
             width: 100%;
-            background: white;
+            background: var(--container-bg);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
         }
         h1 {
             text-align: center;
@@ -42,7 +58,7 @@
             display: block;
             width: 100%;
             padding: 10px;
-            background-color: #007BFF;
+            background-color: var(--button-bg);
             color: white;
             border: none;
             border-radius: 4px;
@@ -50,33 +66,49 @@
             cursor: pointer;
         }
         .submit-button:hover {
-            background-color: #0056b3;
+            background-color: var(--button-hover-bg);
         }
         #result {
             margin-top: 20px;
             padding: 10px;
-            background: #f0f8ff;
+            background: var(--result-bg);
             border-radius: 4px;
         }
         .corner-image {
             position: fixed;
-            width: 360px; /* Adjust size as needed */
+            width: 360px;
             height: 360px;
             z-index: 0;
-            opacity: 0.8;
+            opacity: 0.9;
+            border: 3px solid var(--text-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         .top-left { top: 10px; left: 10px; }
-        .top-right { top: 10px; right: 10px; }
+        .top-right { top: 55px; right: 10px; }
         .bottom-left { bottom: 10px; left: 10px; }
         .bottom-right { bottom: 10px; right: 10px; }
+        .toggle-dark-mode {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--button-bg);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
- <img src="top-left.jpg" class="corner-image top-left" alt="Top Left">
+    <img src="top-left.jpg" class="corner-image top-left" alt="Top Left">
     <img src="top-right.jpg" class="corner-image top-right" alt="Top Right">
     <img src="bottom-left.jpg" class="corner-image bottom-left" alt="Bottom Left">
     <img src="bottom-right.jpg" class="corner-image bottom-right" alt="Bottom Right">
     
+    <button class="toggle-dark-mode" onclick="toggleDarkMode()">Dark Mode</button>
+
     <div class="container">
         <h1>Биеийн өвөрмөц шинж тодорхойлох</h1>
         <form id="bodyTypeTestForm">
@@ -219,15 +251,24 @@
                     <label><input type="radio" name="q20" value="Хий"> Хүйснээс доош</label>
                     <label><input type="radio" name="q20" value="Шар"> Хүйс, зүрхний хооронд</label>
                     <label><input type="radio" name="q20" value="Бадган"> Зүрхнээс доош хэсэгт</label>
-               </div>
-                <button type="button" class="submit-button" onclick="calculateResult()">Илгээх</button>
-            </form>
-            <div id="result" class="result"></div>
-        </div>
+                </div>
+            </div>
+            <button type="button" class="submit-button" onclick="calculateResult()">Илгээх</button>
+        </form>
+        <div id="result"></div>
     </div>
+
     <script>
+        function toggleDarkMode() {
+            const currentTheme = document.body.getAttribute("data-theme");
+            document.body.setAttribute(
+                "data-theme",
+                currentTheme === "dark" ? "light" : "dark"
+            );
+        }
+
         function calculateResult() {
-            const form = document.getElementById('bodyTypeTestForm');
+            const form = document.getElementById("bodyTypeTestForm");
             const formData = new FormData(form);
             let scores = { Хий: 0, Шар: 0, Бадган: 0 };
 
@@ -236,10 +277,8 @@
             });
 
             const result = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
-
-            document.getElementById('result').innerHTML = `Таны биеийн төрөл: <strong>${result}</strong>`;
+            document.getElementById("result").innerHTML = `Таны биеийн төрөл: <strong>${result}</strong>`;
         }
     </script>
 </body>
 </html>
-
