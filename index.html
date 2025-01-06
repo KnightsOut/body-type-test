@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            position: relative;
         }
         .container {
             display: flex;
@@ -20,62 +21,26 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-        .form-section {
-            flex: 1;
-            padding-right: 20px;
+        .corner-image {
+            position: fixed;
+            width: 100px; /* Adjust size as needed */
+            height: 100px;
         }
-        .image-section {
-            flex: 0.5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .image-section img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question p {
-            font-weight: bold;
-        }
-        .options {
-            margin-top: 10px;
-        }
-        .options label {
-            display: block;
-            margin-bottom: 10px;
-        }
-        .submit-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-        .submit-button:hover {
-            background-color: #45a049;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #4CAF50;
-        }
+        .top-left { top: 10px; left: 10px; }
+        .top-right { top: 10px; right: 10px; }
+        .bottom-left { bottom: 10px; left: 10px; }
+        .bottom-right { bottom: 10px; right: 10px; }
     </style>
 </head>
 <body>
+    <img src="top-left.jpg" class="corner-image top-left" alt="Top Left">
+    <img src="top-right.jpg" class="corner-image top-right" alt="Top Right">
+    <img src="bottom-left.jpg" class="corner-image bottom-left" alt="Bottom Left">
+    <img src="bottom-right.jpg" class="corner-image bottom-right" alt="Bottom Right">
+    
     <div class="container">
-        <!-- Form Section -->
         <div class="form-section">
             <h1>Биеийн өвөрмөц шинж тодорхойлох</h1>
             <form id="bodyTypeTestForm">
@@ -219,18 +184,11 @@
                     <label><input type="radio" name="q20" value="Шар"> Хүйс, зүрхний хооронд</label>
                     <label><input type="radio" name="q20" value="Бадган"> Зүрхнээс доош хэсэгт</label>
                 </div>
-            </div>
-            <button type="button" class="submit-button" onclick="calculateResult()">Илгээх</button>
-        </form>
-        <div id="result" class="result"></div>
-    </div>
-
-    <!-- Image Section -->
-        <div class="image-section">
-            <img src="HEHE" alt="Тестийн зураг">
+                <button type="button" class="submit-button" onclick="calculateResult()">Илгээх</button>
+            </form>
+            <div id="result" class="result"></div>
         </div>
     </div>
-
     <script>
         function calculateResult() {
             const form = document.getElementById('bodyTypeTestForm');
@@ -248,3 +206,4 @@
     </script>
 </body>
 </html>
+
