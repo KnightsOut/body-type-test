@@ -11,22 +11,59 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             position: relative;
         }
         .container {
-            display: flex;
-            max-width: 1200px;
-            margin: 50px auto;
+            max-width: 800px;
+            width: 100%;
             background: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f8ff;
+            border-radius: 4px;
         }
         .corner-image {
             position: fixed;
             width: 360px; /* Adjust size as needed */
             height: 360px;
+            z-index: 0;
+            opacity: 0.8;
         }
         .top-left { top: 10px; left: 10px; }
         .top-right { top: 10px; right: 10px; }
@@ -35,17 +72,16 @@
     </style>
 </head>
 <body>
-    <img src="top-left.jpg" class="corner-image top-left" alt="Top Left">
+ <img src="top-left.jpg" class="corner-image top-left" alt="Top Left">
     <img src="top-right.jpg" class="corner-image top-right" alt="Top Right">
     <img src="bottom-left.jpg" class="corner-image bottom-left" alt="Bottom Left">
     <img src="bottom-right.jpg" class="corner-image bottom-right" alt="Bottom Right">
     
     <div class="container">
-        <div class="form-section">
-            <h1>Биеийн өвөрмөц шинж тодорхойлох</h1>
-            <form id="bodyTypeTestForm">
-                <div class="question">
-                    <p>1. Таны биеийн галбир?</p>
+        <h1>Биеийн өвөрмөц шинж тодорхойлох</h1>
+        <form id="bodyTypeTestForm">
+            <div class="question">
+                <p>1. Таны биеийн галбир?</p>
                     <div class="options">
                         <label><input type="radio" name="q1" value="Хий"> Туранхай</label>
                         <label><input type="radio" name="q1" value="Шар"> Дунд зэрэг</label>
@@ -183,7 +219,7 @@
                     <label><input type="radio" name="q20" value="Хий"> Хүйснээс доош</label>
                     <label><input type="radio" name="q20" value="Шар"> Хүйс, зүрхний хооронд</label>
                     <label><input type="radio" name="q20" value="Бадган"> Зүрхнээс доош хэсэгт</label>
-                </div>
+               </div>
                 <button type="button" class="submit-button" onclick="calculateResult()">Илгээх</button>
             </form>
             <div id="result" class="result"></div>
@@ -206,4 +242,3 @@
     </script>
 </body>
 </html>
-
